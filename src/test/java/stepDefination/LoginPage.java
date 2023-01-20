@@ -1,19 +1,12 @@
 package stepDefination;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.BaseClass;
 
 public class LoginPage extends BaseClass {
@@ -37,10 +30,11 @@ public class LoginPage extends BaseClass {
 	@Then("home page should be displayed")
 	public void home_page_should_be_displayed() throws IOException {
 
-		String exprectedResult = "DEMO";
-		String actualResult = driver.findElement(By.xpath(readPropertyFile("homePageText"))).getText();
+		String exprectedResult = "https://sakshingp.github.io/assignment/home.html";
+		String actualResult = driver.getCurrentUrl();
 		Assert.assertEquals(exprectedResult, actualResult);
 		driver.quit();
+
 	}
 
 	@Then("verify error message")
